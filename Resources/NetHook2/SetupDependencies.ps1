@@ -23,6 +23,7 @@ if (-Not (Test-Path $ZLibFolderPath))
     if (-Not (Test-Path $ZLibSourceFile))
     {
         Write-Host Downloading ZLib headers...
+	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $ZLibSourceZipUrl -OutFile $ZLibSourceFile
     }
 
@@ -41,6 +42,7 @@ if (-Not (Test-Path $ProtobufFolderPath))
     if (-Not (Test-Path $ProtobufSourceFile))
     {
         Write-Host Downloading Google Protobuf Headers...
+	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Invoke-WebRequest $ProtobufSourceZipUrl -OutFile $ProtobufSourceFile
     }
 
